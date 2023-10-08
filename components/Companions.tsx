@@ -5,12 +5,11 @@ import Link from "next/link";
 import { MessagesSquare } from "lucide-react";
 
 type CompanionsProps = {
-  data: Companion[];
-  //    & {
-  //   _count: {
-  //     messages: number;
-  //   };
-  // }
+  data: (Companion & {
+    _count: {
+      messages: number;
+    };
+  })[];
 };
 
 const Companions = ({ data }: CompanionsProps) => {
@@ -49,7 +48,7 @@ const Companions = ({ data }: CompanionsProps) => {
               <p className="lowercase">@{item.userName}</p>
               <div className="flex items-center">
                 <MessagesSquare className="w-3 h-3 mr-1" />
-                {/* {item._count.messages} */}
+                {item._count.messages}
               </div>
             </CardFooter>
           </Link>
